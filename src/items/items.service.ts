@@ -11,7 +11,7 @@ export class ItemsService {
 
     async create(createItemDto: CreateItemDto) {
         // Aqui ya puedo poner la logica
-        let item = this.itemsModule.create(createItemDto)
+        let item = await this.itemsModule.create(createItemDto)
         return item;
     }
 
