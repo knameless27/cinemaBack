@@ -6,10 +6,10 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
     const config = new DocumentBuilder()
-        .setTitle('Cinema api docs')
+        .setTitle('Cinema')
         .setDescription('')
         .setVersion('1.0')
-        .addTag('items')
+        .addTag('cinema')
         .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('docs', app, document);
