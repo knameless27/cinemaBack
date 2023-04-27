@@ -1,12 +1,9 @@
 import { IsNotEmpty } from "class-validator";
 
-export class CreateItemDto {
+export class CreateRoleDto {
     @IsNotEmpty()
     name:string;
 
     @IsNotEmpty()
-    price:number;
-
-    @IsNotEmpty()
-    description:string;
+    state:boolean;
 }
