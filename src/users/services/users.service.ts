@@ -16,7 +16,7 @@ export class UsersService {
     }
 
     async findAll() {
-        return standardResponse(await this.usersModule.find({}), 'Usuarios encontrados exitosamente!', 'success');
+        return standardResponse(await this.usersModule.find({}).populate('role'), 'Usuarios encontrados exitosamente!', 'success');
     }
 
     async findOne(id: string) {
