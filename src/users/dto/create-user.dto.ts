@@ -16,6 +16,6 @@ export class CreateUserDto {
     @IsNotEmpty()
     state: boolean;
 
-    // @IsNotEmpty()
-    // Role: string;
+    @IsNotEmpty()
+    role: string;
 }

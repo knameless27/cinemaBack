@@ -2,13 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { CreateRoleDto } from '../dto/create-role.dto';
 import { UpdateRoleDto } from '../dto/update-role.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { Roles, RolesDocument } from '../schema/roles.schema';
+import { Roles } from '../schema/roles.schema';
 import { Model } from 'mongoose';
 import { standardResponse } from "../../utils/response";
+import {RoleModelName} from 'src/models/role.model';
+import { IRole } from 'src/interfaces/roles/role.interface';
 
 @Injectable()
 export class RolesService {
-    constructor(@InjectModel(Roles.name) private rolesModule: Model<RolesDocument>) { }
+    constructor(@InjectModel(RoleModelName) private rolesModule: Model<IRole>) { }
 
     async create(CreateRoleDto: CreateRoleDto) {
         return standardResponse(await this.rolesModule.create(CreateRoleDto), 'Rol creado exitosamente!', 'success');

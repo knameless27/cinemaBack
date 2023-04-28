@@ -1,6 +1,6 @@
 import { model } from 'mongoose';
 import { RolesSchema } from 'src/roles/schema/roles.schema';
 
-const RoleModel = model('Role', RolesSchema);
+export const RoleModelName = 'Role'
 
-export default RoleModel;
+export const RoleModel = model(RoleModelName, RolesSchema);
