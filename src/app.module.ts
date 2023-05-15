@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { TicketStatusModule } from './ticket-status/ticket-status.module';
+import { MovieCategoryModule } from './movie-category/movie-category.module';
 
 @Module({
     imports: [
@@ -13,7 +14,8 @@ import { TicketStatusModule } from './ticket-status/ticket-status.module';
         MongooseModule.forRoot(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cinema.mycfuis.mongodb.net/?`),
         RolesModule,
         UsersModule,
-        TicketStatusModule
+        TicketStatusModule,
+        MovieCategoryModule
     ],
 })
 export class AppModule { }
