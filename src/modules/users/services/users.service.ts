@@ -3,7 +3,7 @@ import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { standardResponse } from 'src/utils/response';
+import { standardResponse } from 'src/modules/utils/response';
 import {UserModelName} from 'src/models/user.model';
 import { IUser } from 'src/interfaces/users/user.interface';
 
