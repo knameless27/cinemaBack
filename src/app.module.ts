@@ -8,6 +8,7 @@ import { MovieCategoryModule } from './modules/movie-category/movie-category.mod
 import { MovieClasificationModule } from './modules/movie-clasification/movie_clasification.module';
 import { MoviesModule } from './modules/movie/movie.module';
 import { FunctionModule } from './modules/function/function.module';
+import { ChairStatusModule } from './modules/chair-status/chair-status.module';
 
 @Module({
     imports: [
@@ -21,7 +22,8 @@ import { FunctionModule } from './modules/function/function.module';
         MovieCategoryModule,
         MovieClasificationModule,
         MoviesModule,
-        FunctionModule
+        FunctionModule,
+        ChairStatusModule
     ],
 })
 export class AppModule { }
