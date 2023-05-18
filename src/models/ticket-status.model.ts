@@ -1,5 +1,5 @@
 import { model } from 'mongoose';
-import { TicketStatusSchema } from 'src/ticket-status/schema/ticket-status.schema';
+import { TicketStatusSchema } from 'src/modules/ticket-status/schema/ticket-status.schema';
 
 export const TicketStatusModelName = 'Ticket_Status'
 

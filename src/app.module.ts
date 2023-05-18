@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { UsersModule } from './users/users.module';
-import { RolesModule } from './roles/roles.module';
-import { TicketStatusModule } from './ticket-status/ticket-status.module';
-import { MovieCategoryModule } from './movie-category/movie-category.module';
-import { MovieClasificationModule } from './movie-clasification/movie_clasification.module';
-import { MoviesModule } from './movie/movie.module';
+import { UsersModule } from './modules/users/users.module';
+import { RolesModule } from './modules/roles/roles.module';
+import { TicketStatusModule } from './modules/ticket-status/ticket-status.module';
+import { MovieCategoryModule } from './modules/movie-category/movie-category.module';
+import { MovieClasificationModule } from './modules/movie-clasification/movie_clasification.module';
+import { MoviesModule } from './modules/movie/movie.module';
 
 @Module({
     imports: [

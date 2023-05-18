@@ -1,5 +1,5 @@
 import { model } from 'mongoose';
-import { RolesSchema } from 'src/roles/schema/roles.schema';
+import { RolesSchema } from 'src/modules/roles/schema/roles.schema';
 
 export const RoleModelName = 'Role'
 

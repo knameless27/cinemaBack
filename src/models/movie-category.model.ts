@@ -1,5 +1,5 @@
 import { model } from 'mongoose';
-import { MovieCategorySchema } from 'src/movie-category/schema/movie-category.schema';
+import { MovieCategorySchema } from 'src/modules/movie-category/schema/movie-category.schema';
 
 export const MovieCategoryModelName = 'Movie_Category'
 
