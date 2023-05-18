@@ -5,17 +5,5 @@ export class CreateRoleDto {
     name:string;
 
     @IsNotEmpty()
-    age:number;
-
-    @IsNotEmpty()
-    dni:string;
-
-    @IsNotEmpty()
-    password:string;
-
-    @IsNotEmpty()
     state:boolean;
-
-    @IsNotEmpty()
-    role:string;
 }
