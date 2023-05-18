@@ -7,6 +7,7 @@ import { TicketStatusModule } from './modules/ticket-status/ticket-status.module
 import { MovieCategoryModule } from './modules/movie-category/movie-category.module';
 import { MovieClasificationModule } from './modules/movie-clasification/movie_clasification.module';
 import { MoviesModule } from './modules/movie/movie.module';
+import { FunctionModule } from './modules/function/function.module';
 
 @Module({
     imports: [
@@ -19,7 +20,8 @@ import { MoviesModule } from './modules/movie/movie.module';
         TicketStatusModule,
         MovieCategoryModule,
         MovieClasificationModule,
-        MoviesModule
+        MoviesModule,
+        FunctionModule
     ],
 })
 export class AppModule { }

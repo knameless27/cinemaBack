@@ -5,14 +5,11 @@ export class CreateFunctionDto {
     name:string;
 
     @IsNotEmpty()
-    duration: number;
-
-    @IsNotEmpty()
-    movie_category: string;
+    date: Date;
 
     @IsNotEmpty()
     state:boolean;
 
     @IsNotEmpty()
-    movie_clasification: string;
+    movie: string;
 }
