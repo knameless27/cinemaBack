@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { TicketStatusModule } from './ticket-status/ticket-status.module';
 import { MovieCategoryModule } from './movie-category/movie-category.module';
+import { MovieClasificationModule } from './movie-clasification/movie_clasification.module';
 
 @Module({
     imports: [
@@ -15,7 +16,8 @@ import { MovieCategoryModule } from './movie-category/movie-category.module';
         RolesModule,
         UsersModule,
         TicketStatusModule,
-        MovieCategoryModule
+        MovieCategoryModule,
+        MovieClasificationModule
     ],
 })
 export class AppModule { }
