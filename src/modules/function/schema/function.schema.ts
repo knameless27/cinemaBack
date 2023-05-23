@@ -5,6 +5,7 @@ export const Functions = {
     state: Boolean,
     date: Date,
     movie: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' },
+    room: { type: mongoose.Schema.Types.ObjectId, ref: 'Room' },
 }
 
 export const FunctionsSchema = new mongoose.Schema(Functions);

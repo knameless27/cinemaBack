@@ -12,4 +12,6 @@ export class CreateFunctionDto {
 
     @IsNotEmpty()
     movie: string;
+
+    room: string;
 }
