@@ -9,6 +9,8 @@ import { MovieClasificationModule } from './modules/movie-clasification/movie_cl
 import { MoviesModule } from './modules/movie/movie.module';
 import { FunctionModule } from './modules/function/function.module';
 import { ChairStatusModule } from './modules/chair-status/chair-status.module';
+import { RoomsModule } from './modules/room/room.module';
+import { ChairsModule } from './modules/chair/chair.module';
 
 @Module({
     imports: [
@@ -23,7 +25,9 @@ import { ChairStatusModule } from './modules/chair-status/chair-status.module';
         MovieClasificationModule,
         MoviesModule,
         FunctionModule,
-        ChairStatusModule
+        ChairStatusModule,
+        RoomsModule,
+        ChairsModule,
     ],
 })
 export class AppModule { }

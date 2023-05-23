@@ -1,18 +1,21 @@
 import { IsNotEmpty } from "class-validator";
 
-export class CreateMovieDto {
+export class CreateChairDto {
     @IsNotEmpty()
     name:string;
-
-    @IsNotEmpty()
-    duration: number;
-
-    @IsNotEmpty()
-    movie_category: string;
 
     @IsNotEmpty()
     state:boolean;
 
     @IsNotEmpty()
-    movie_clasification: string;
+    row: number;
+
+    @IsNotEmpty()
+    column: number;
+
+    @IsNotEmpty()
+    number: string;
+
+    @IsNotEmpty()
+    chair_status: string;
 }
