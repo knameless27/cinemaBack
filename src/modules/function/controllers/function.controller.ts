@@ -1,9 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { FunctionService } from '../services/function.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateFunctionDto } from '../dto/create-function.dto';
 import { UpdateFunctionDto } from '../dto/update-function.dto';
+import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
 @ApiTags('functions')
 @Controller('functions')
 export class FunctionsController {

@@ -13,6 +13,7 @@ import { RoomsModule } from './modules/room/room.module';
 import { ChairsModule } from './modules/chair/chair.module';
 import { ChairRoomModule } from './modules/chair-rooms/chair-room.module';
 import { TicketsModule } from './modules/ticket/ticket.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
     imports: [
@@ -22,6 +23,7 @@ import { TicketsModule } from './modules/ticket/ticket.module';
         MongooseModule.forRoot(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cinema.mycfuis.mongodb.net/?`),
         RolesModule,
         UsersModule,
+        AuthModule,
         TicketStatusModule,
         MovieCategoryModule,
         MovieClasificationModule,

@@ -6,6 +6,7 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
     const config = new DocumentBuilder()
+        .addBearerAuth()
         .setTitle('Cinema')
         .setDescription('')
         .setVersion('1.0')

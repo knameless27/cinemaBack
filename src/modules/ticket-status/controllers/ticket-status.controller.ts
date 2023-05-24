@@ -1,9 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { TicketStatusService } from '../services/ticket-status.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateTicketStatusDto } from '../dto/create-ticket-status.dto';
 import { UpdateTicketStatusDto } from '../dto/update-ticket-status.dto';
+import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
 @ApiTags('ticket-status')
 @Controller('ticket-status')
 export class TicketStatusController {

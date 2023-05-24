@@ -1,9 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ChairService } from '../services/chair.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateChairDto } from '../dto/create-chair.dto';
 import { UpdateChairDto } from '../dto/update-chair.dto';
+import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
 @ApiTags('chairs')
 @Controller('chairs')
 export class ChairsController {

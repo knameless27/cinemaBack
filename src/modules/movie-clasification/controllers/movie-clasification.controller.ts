@@ -1,9 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { MovieClasificationService } from '../services/movie-clasification.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateMovieClasificationDto } from '../dto/create-movie-clasification.dto';
 import { UpdateMovieClasificationDto } from '../dto/update-movie-clasification.dto';
+import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
 @ApiTags('movie-clasification')
 @Controller('movie-clasification')
 export class MovieClasificationController {
