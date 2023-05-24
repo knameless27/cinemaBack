@@ -20,14 +20,20 @@ export class FunctionService {
     }
 
     async findOne(id: string) {
-        return standardResponse(await this.FunctionModule.findById(id), 'Funcion encontrada exitosamente!', 'success');
+        const func = await this.FunctionModule.findById(id).populate('movie').populate({ path: 'movie',
+            populate: {
+                path: 'movie_clasification',
+                model: 'Movie_Clasification'
+            }
+        })
+        return standardResponse(func, 'Funcion encontrada exitosamente!', 'success');
     }
 
-   async update(id: string, UpdateFunctionDto: UpdateFunctionDto) {
-        return standardResponse(await this.FunctionModule.updateOne({_id: id}, UpdateFunctionDto), 'Funcion editada exitosamente!', 'success');
+    async update(id: string, UpdateFunctionDto: UpdateFunctionDto) {
+        return standardResponse(await this.FunctionModule.updateOne({ _id: id }, UpdateFunctionDto), 'Funcion editada exitosamente!', 'success');
     }
 
     async remove(id: string) {
-        return standardResponse(await this.FunctionModule.deleteOne({_id: id}), 'Funcion eliminada exitosamente!', 'success');
+        return standardResponse(await this.FunctionModule.deleteOne({ _id: id }), 'Funcion eliminada exitosamente!', 'success');
     }
 }

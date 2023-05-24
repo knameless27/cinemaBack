@@ -13,6 +13,7 @@ import {UserModel, UserModelName} from 'src/models/user.model';
             }
         ])
     ],
+    exports: [UsersService],
     providers: [UsersService],
     controllers: [UsersController]
 })

@@ -7,7 +7,6 @@ export class CreateTicketDto {
     @IsNotEmpty()
     state:boolean;
 
-    @IsNotEmpty()
     ticket_status: string;
 
     @IsNotEmpty()

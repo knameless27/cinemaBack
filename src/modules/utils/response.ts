@@ -1,4 +1,4 @@
-export const standardResponse = (data: Object | [], message: string, status: string) => {
+export const standardResponse = (data: Object | [] | null, message: string, status: string) => {
     try {
         return {
           data,

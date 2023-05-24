@@ -13,6 +13,7 @@ import { FunctionModel, FunctionModelName } from 'src/models/function.model';
             }
         ])
     ],
+    exports: [FunctionService],
     providers: [FunctionService],
     controllers: [FunctionsController]
 })
