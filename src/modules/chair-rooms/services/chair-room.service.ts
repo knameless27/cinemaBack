@@ -20,7 +20,7 @@ export class ChairRoomService {
     }
 
     async findOne(id: string) {
-        return standardResponse(await this.ChairRoomModule.findById(id), 'pivote de silla y sala encontrado exitosamente!', 'success');
+        return standardResponse(await this.ChairRoomModule.findById(id).populate('room'), 'pivote de silla y sala encontrado exitosamente!', 'success');
     }
 
    async update(id: string, UpdateChairRoomDto: UpdateChairRoomDto) {

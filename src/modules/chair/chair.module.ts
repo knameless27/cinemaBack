@@ -13,6 +13,7 @@ import { ChairModel, ChairModelName } from 'src/models/chair.model';
             }
         ])
     ],
+    exports: [ChairService],
     providers: [ChairService],
     controllers: [ChairsController]
 })

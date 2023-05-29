@@ -13,6 +13,7 @@ import { ChairRoomModel, ChairRoomModelName } from 'src/models/chair-room.model'
             }
         ])
     ],
+    exports: [ChairRoomService],
     providers: [ChairRoomService],
     controllers: [ChairRoomsController]
 })

@@ -5,6 +5,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TicketModel, TicketModelName } from 'src/models/ticket.model';
 import { FunctionModule } from '../function/function.module';
 import { UsersModule } from '../users/users.module';
+import { ChairRoomModule } from '../chair-rooms/chair-room.module';
+import { ChairsModule } from '../chair/chair.module';
 
 @Module({
     imports: [
@@ -15,7 +17,9 @@ import { UsersModule } from '../users/users.module';
             }
         ]),
         FunctionModule,
-        UsersModule
+        UsersModule,
+        ChairRoomModule,
+        ChairsModule
     ],
     providers: [TicketService],
     controllers: [TicketsController]
