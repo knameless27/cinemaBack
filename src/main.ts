@@ -8,7 +8,7 @@ async function bootstrap() {
     const config = new DocumentBuilder()
         .addBearerAuth()
         .setTitle('Cinema')
-        .setDescription('')
+        .setDescription('un cine funcional')
         .setVersion('1.0')
         .addTag('cinema')
         .build();
