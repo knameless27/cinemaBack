@@ -16,7 +16,13 @@ export class FunctionService {
     }
 
     async findAll() {
-        return standardResponse(await this.FunctionModule.find({}), 'Funciones encontradas exitosamente!', 'success');
+        const func = await this.FunctionModule.find({}).populate(['room','movie']).populate({ path: 'movie',
+            populate: {
+                path: 'movie_clasification',
+                model: 'Movie_Clasification'
+            }
+        })
+        return standardResponse(func, 'Funciones encontradas exitosamente!', 'success');
     }
 
     async findOne(id: string) {
