@@ -4,7 +4,7 @@ import { UpdateUserDto } from '../dto/update-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { standardResponse } from 'src/modules/utils/response';
-import {UserModelName} from 'src/models/user.model';
+import { UserModelName } from 'src/models/user.model';
 import { IUser } from 'src/interfaces/users/user.interface';
 
 @Injectable()
@@ -17,6 +17,16 @@ export class UsersService {
 
     async findAll() {
         return standardResponse(await this.usersModule.find({}).populate('role'), 'Usuarios encontrados exitosamente!', 'success');
+    }
+
+    async paginated(skip: number, limit: number) {
+        const users = await this.usersModule
+            .find({})
+            .populate('role')
+            .skip(skip)
+            .limit(limit);
+
+        return standardResponse(users, 'Usuarios encontrados exitosamente!', 'success');
     }
 
     async findOne(id: string) {

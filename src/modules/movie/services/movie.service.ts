@@ -16,11 +16,11 @@ export class MovieService {
     }
 
     async findAll() {
-        return standardResponse(await this.movieModule.find({}), 'Peliculas encontradas exitosamente!', 'success');
+        return standardResponse(await this.movieModule.find({}).populate(['movie_category', 'movie_clasification']), 'Peliculas encontradas exitosamente!', 'success');
     }
 
     async findOne(id: string) {
-        return standardResponse(await this.movieModule.findById(id), 'Pelicula encontrada exitosamente!', 'success');
+        return standardResponse(await this.movieModule.findById(id).populate(['movie_category', 'movie_clasification']), 'Pelicula encontrada exitosamente!', 'success');
     }
 
    async update(id: string, UpdateMovieDto: UpdateMovieDto) {

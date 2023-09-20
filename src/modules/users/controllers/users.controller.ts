@@ -10,7 +10,7 @@ import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 @ApiTags('users')
 @Controller('users')
 export class UsersController {
-    constructor(private readonly usersService: UsersService) {}
+    constructor(private readonly usersService: UsersService) { }
 
     @Post()
     create(@Body() createUserDto: CreateUserDto) {
@@ -25,6 +25,11 @@ export class UsersController {
     @Get(':id')
     findOne(@Param('id') id: string) {
         return this.usersService.findOne(id);
+    }
+
+    @Get(':skip/:limit')
+    paginated(@Param(':skip') skip: number, @Param(':limit') limit: number) {
+        return this.usersService.paginated(skip, limit);
     }
 
     @Patch(':id')
