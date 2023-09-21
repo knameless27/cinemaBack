@@ -27,6 +27,11 @@ export class ChairRoomsController {
         return this.ChairRoomService.findOne(id);
     }
 
+    @Get('room/:roomId')
+    findAllByRoom(@Param('roomId') roomId: string) {
+        return this.ChairRoomService.findAllByRoom(roomId);
+    }
+
     @Patch(':id')
     update(@Param('id') id: string, @Body() UpdateChairRoomDto: UpdateChairRoomDto) {
         return this.ChairRoomService.update(id, UpdateChairRoomDto);

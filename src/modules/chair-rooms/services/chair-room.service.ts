@@ -23,11 +23,15 @@ export class ChairRoomService {
         return standardResponse(await this.ChairRoomModule.findById(id).populate('room'), 'pivote de silla y sala encontrado exitosamente!', 'success');
     }
 
-   async update(id: string, UpdateChairRoomDto: UpdateChairRoomDto) {
-        return standardResponse(await this.ChairRoomModule.updateOne({_id: id}, UpdateChairRoomDto), 'pivote de silla y sala editado exitosamente!', 'success');
+    async findAllByRoom(roomId: string) {
+        return standardResponse(await this.ChairRoomModule.find({ room: roomId }).populate('chair'), 'pivote de silla y sala encontrado exitosamente!', 'success');
+    }
+
+    async update(id: string, UpdateChairRoomDto: UpdateChairRoomDto) {
+        return standardResponse(await this.ChairRoomModule.updateOne({ _id: id }, UpdateChairRoomDto), 'pivote de silla y sala editado exitosamente!', 'success');
     }
 
     async remove(id: string) {
-        return standardResponse(await this.ChairRoomModule.deleteOne({_id: id}), 'pivote de silla y sala eliminado exitosamente!', 'success');
+        return standardResponse(await this.ChairRoomModule.deleteOne({ _id: id }), 'pivote de silla y sala eliminado exitosamente!', 'success');
     }
 }
