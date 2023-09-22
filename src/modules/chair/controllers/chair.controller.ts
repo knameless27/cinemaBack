@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@n
 import { ChairService } from '../services/chair.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateChairDto } from '../dto/create-chair.dto';
+import { NewRoomDto } from '../dto/new-room.dto';
 import { UpdateChairDto } from '../dto/update-chair.dto';
 import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 
@@ -15,6 +16,11 @@ export class ChairsController {
     @Post()
     create(@Body() createChairDto: CreateChairDto) {
         return this.chairService.create(createChairDto);
+    }
+
+    @Post('room')
+    createRoom(@Body() newRoomDto: NewRoomDto) {
+        return this.chairService.createRoom(newRoomDto);
     }
 
     @Get()
