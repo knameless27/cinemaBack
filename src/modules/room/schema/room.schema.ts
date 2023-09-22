@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 
 export const Room = {
     name: String,
+    rows: Number,
+    columns: Number,
     state: Boolean
 }
 

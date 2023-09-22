@@ -11,7 +11,6 @@ import { FunctionModule } from './modules/function/function.module';
 import { ChairStatusModule } from './modules/chair-status/chair-status.module';
 import { RoomsModule } from './modules/room/room.module';
 import { ChairsModule } from './modules/chair/chair.module';
-import { ChairRoomModule } from './modules/chair-rooms/chair-room.module';
 import { TicketsModule } from './modules/ticket/ticket.module';
 import { AuthModule } from './modules/auth/auth.module';
 
@@ -32,7 +31,6 @@ import { AuthModule } from './modules/auth/auth.module';
         ChairStatusModule,
         RoomsModule,
         ChairsModule,
-        ChairRoomModule,
         TicketsModule
     ],
 })

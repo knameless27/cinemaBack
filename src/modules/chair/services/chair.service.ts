@@ -20,14 +20,18 @@ export class ChairService {
     }
 
     async findOne(id: string) {
-        return standardResponse(await this.chairModule.findById(id).populate('chair_status'), 'Silla encontrada exitosamente!', 'success');
+        return standardResponse(await this.chairModule.findById(id).populate(['chair_status', 'room']), 'Silla encontrada exitosamente!', 'success');
     }
 
-   async update(id: string, UpdateChairDto: UpdateChairDto) {
-        return standardResponse(await this.chairModule.updateOne({_id: id}, UpdateChairDto), 'Silla editada exitosamente!', 'success');
+    async findByRoom(room: string) {
+        return standardResponse(await this.chairModule.find({ room }).populate(['chair_status', 'room']), 'Silla encontrada exitosamente!', 'success');
+    }
+
+    async update(id: string, UpdateChairDto: UpdateChairDto) {
+        return standardResponse(await this.chairModule.updateOne({ _id: id }, UpdateChairDto), 'Silla editada exitosamente!', 'success');
     }
 
     async remove(id: string) {
-        return standardResponse(await this.chairModule.deleteOne({_id: id}), 'Silla eliminada exitosamente!', 'success');
+        return standardResponse(await this.chairModule.deleteOne({ _id: id }), 'Silla eliminada exitosamente!', 'success');
     }
 }

@@ -27,6 +27,11 @@ export class ChairsController {
         return this.chairService.findOne(id);
     }
 
+    @Get('room/:room')
+    findByRoom(@Param('room') room: string) {
+        return this.chairService.findByRoom(room);
+    }
+
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateChairDto: UpdateChairDto) {
         return this.chairService.update(id, updateChairDto);

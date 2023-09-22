@@ -16,7 +16,7 @@ export class CreateTicketDto {
 
     @ApiProperty()
     @IsNotEmpty()
-    chair_room: string;
+    chair: string;
 
     @ApiProperty()
     @IsNotEmpty()

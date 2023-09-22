@@ -4,9 +4,17 @@ import { IsNotEmpty } from "class-validator";
 export class CreateRoomDto {
     @ApiProperty()
     @IsNotEmpty()
-    name:string;
+    name: string;
 
     @ApiProperty()
     @IsNotEmpty()
-    state:boolean;
+    rows: number;
+
+    @ApiProperty()
+    @IsNotEmpty()
+    columns: number;
+
+    @ApiProperty()
+    @IsNotEmpty()
+    state: boolean;
 }

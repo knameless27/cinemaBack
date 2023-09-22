@@ -8,14 +8,12 @@ import { TicketModelName } from 'src/models/ticket.model';
 import { ITicket } from 'src/interfaces/Ticket/ticket.interface';
 import { FunctionService } from 'src/modules/function/services/function.service';
 import { UsersService } from 'src/modules/users/services/users.service';
-import { ChairRoomService } from 'src/modules/chair-rooms/services/chair-room.service';
 import { ChairService } from 'src/modules/chair/services/chair.service';
 
 @Injectable()
 export class TicketService {
     @Inject(FunctionService) private readonly functionService: FunctionService;
     @Inject(UsersService) private readonly userService: UsersService;
-    @Inject(ChairRoomService) private chairRoomService: ChairRoomService
     @Inject(ChairService) private chairService: ChairService
     constructor(@InjectModel(TicketModelName) private TicketModule: Model<ITicket>) { }
 
@@ -23,10 +21,9 @@ export class TicketService {
         try {
             const funcion = await this.functionService.findOne(CreateTicketDto.function)
             const user = await this.userService.findOne(CreateTicketDto.user)
-            const chair_room = await this.chairRoomService.findOne(CreateTicketDto.chair_room)
-            const chair = await this.chairService.findOne(chair_room.data.chair)
+            const chair = await this.chairService.findOne(CreateTicketDto.chair)
 
-            if (!chair_room.data) return standardResponse(null, 'Silla no encontrada!', 'error');
+            if (!chair.data) return standardResponse(null, 'Silla no encontrada!', 'error');
 
             if (!funcion.data) return standardResponse(null, 'Funcion no encontrada!', 'error');
 
@@ -40,14 +37,9 @@ export class TicketService {
 
             const tiquete = CreateTicketDto
 
-            tiquete.name = chair_room.data.room.name + " - " +chair.data.column + " - " + chair.data.row
+            tiquete.name = chair.data.room.name + " - " +chair.data.column + " - " + chair.data.row
 
-            const silla = {
-                // vendida
-                chair_status: "64669598f1bc66eeae09c236"
-            }
-
-            this.chairService.update(chair.data._id, silla)
+            this.chairService.update(chair.data._id, chair.data)
 
             return standardResponse(await this.TicketModule.create(tiquete), 'Tiquete creado exitosamente!', 'success');
 
