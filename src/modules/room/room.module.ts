@@ -13,6 +13,7 @@ import { RoomModel, RoomModelName } from 'src/models/room.model';
             }
         ])
     ],
+    exports: [RoomService],
     providers: [RoomService],
     controllers: [RoomsController]
 })
