@@ -16,17 +16,25 @@ export class FunctionService {
     }
 
     async findAll() {
-        const func = await this.FunctionModule.find({}).populate(['room','movie']).populate({ path: 'movie',
-            populate: {
-                path: 'movie_clasification',
-                model: 'Movie_Clasification'
-            }
+        const func = await this.FunctionModule.find({}).sort({ date: -1 }).populate(['room', 'movie']).populate({
+            path: 'movie',
+            populate: [
+                {
+                    path: 'movie_clasification',
+                    model: 'Movie_Clasification'
+                },
+                {
+                    path: 'movie_category',
+                    model: 'Movie_Category'
+                }
+            ],
         })
         return standardResponse(func, 'Funciones encontradas exitosamente!', 'success');
     }
 
     async findOne(id: string) {
-        const func = await this.FunctionModule.findById(id).populate('movie').populate({ path: 'movie',
+        const func = await this.FunctionModule.findById(id).populate(['movie', 'room']).populate({
+            path: 'movie',
             populate: {
                 path: 'movie_clasification',
                 model: 'Movie_Clasification'
