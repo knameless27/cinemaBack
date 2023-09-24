@@ -4,6 +4,8 @@ export interface IUser {
     age: number;
     dni: string;
     password: string;
-    role: string;
+    role: {
+        name: string;
+    };
     state: boolean;
 }

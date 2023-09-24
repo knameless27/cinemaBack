@@ -15,7 +15,7 @@ export class AuthService {
 
     async login(CreateAuthDto: LoginAuthDto) {
         const { dni, password } = CreateAuthDto;
-        const findUser = await this.AuthModule.findOne({ dni })
+        const findUser = await this.AuthModule.findOne({ dni }).populate('role')
 
         if (!findUser) return standardResponse(null, 'Usuario no encontrado!', 'error');
 
@@ -23,7 +23,7 @@ export class AuthService {
 
         if (!checkPassword) return standardResponse(null, 'Contraseña incorrecta!', 'error');
 
-        const payload = {id: findUser._id, name: findUser.name, email: findUser.email, dni: findUser.dni, role: findUser.role}
+        const payload = {id: findUser._id, name: findUser.name, email: findUser.email, dni: findUser.dni, role: findUser.role.name}
         const token = await this.jwtAuthService.sign(payload)
 
         return standardResponse(token, 'Inicio de sesion exitoso!', 'success');
@@ -32,6 +32,7 @@ export class AuthService {
     async register(CreateAuthDto: RegisterAuthDto) {
         const { password } = CreateAuthDto;
         const hashedPassword = await hash(password, 10);
+        CreateAuthDto.role = '646e5ff30923c0c50aaf677e'
         CreateAuthDto = { ...CreateAuthDto, password: hashedPassword };
         return standardResponse(await this.AuthModule.create(CreateAuthDto), 'Usuario registrado exitosamente!', 'success');
     }

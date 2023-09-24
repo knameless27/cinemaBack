@@ -7,6 +7,8 @@ export class RegisterAuthDto extends PartialType(LoginAuthDto) {
     @ApiProperty()
     @IsNotEmpty()
     name:string;
+
+    role:string;
     
     @ApiProperty()
     email:string;
