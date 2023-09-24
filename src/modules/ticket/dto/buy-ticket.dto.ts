@@ -1,33 +1,24 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty } from "class-validator";
+import { CreateChairDto } from "src/modules/chair/dto/create-chair.dto";
 
-export class CreateUserDto {
-
-    @ApiProperty()
-    @IsNotEmpty()
-    name: string;
-    
+export class BuyTicketDto {
     @ApiProperty()
     @IsNotEmpty()
     email: string;
 
     @ApiProperty()
     @IsNotEmpty()
-    age: number;
+    user: string;
 
     @ApiProperty()
     @IsNotEmpty()
-    dni: string;
-
+    function: {
+        _id: string;
+        date: string;
+    };
+    
     @ApiProperty()
     @IsNotEmpty()
-    password: string;
-
-    @ApiProperty()
-    @IsNotEmpty()
-    state: boolean;
-
-    @ApiProperty()
-    @IsNotEmpty()
-    role: string;
+    chairs: CreateChairDto[];
 }

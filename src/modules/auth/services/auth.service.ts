@@ -23,7 +23,7 @@ export class AuthService {
 
         if (!checkPassword) return standardResponse(null, 'Contraseña incorrecta!', 'error');
 
-        const payload = {id: findUser._id, name: findUser.name, dni: findUser.dni, role: findUser.role}
+        const payload = {id: findUser._id, name: findUser.name, email: findUser.email, dni: findUser.dni, role: findUser.role}
         const token = await this.jwtAuthService.sign(payload)
 
         return standardResponse(token, 'Inicio de sesion exitoso!', 'success');

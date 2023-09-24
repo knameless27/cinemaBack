@@ -4,6 +4,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateTicketDto } from '../dto/create-ticket.dto';
 import { UpdateTicketDto } from '../dto/update-ticket.dto';
 import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
+import { BuyTicketDto } from '../dto/buy-ticket.dto';
 
 @ApiBearerAuth()
 @UseGuards(JwtAuthGuard)
@@ -15,6 +16,11 @@ export class TicketsController {
     @Post()
     create(@Body() createTicketDto: CreateTicketDto) {
         return this.TicketService.create(createTicketDto);
+    }
+    
+    @Post('buy')
+    buyTickets(@Body() buyTicketDto: BuyTicketDto) {
+        return this.TicketService.buyTickets(buyTicketDto);
     }
 
     @Get()

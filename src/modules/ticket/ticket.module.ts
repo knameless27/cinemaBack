@@ -6,6 +6,7 @@ import { TicketModel, TicketModelName } from 'src/models/ticket.model';
 import { FunctionModule } from '../function/function.module';
 import { UsersModule } from '../users/users.module';
 import { ChairsModule } from '../chair/chair.module';
+import { MailModule } from '../mail/mail.module';
 
 @Module({
     imports: [
@@ -17,7 +18,8 @@ import { ChairsModule } from '../chair/chair.module';
         ]),
         FunctionModule,
         UsersModule,
-        ChairsModule
+        ChairsModule,
+        MailModule
     ],
     providers: [TicketService],
     controllers: [TicketsController]

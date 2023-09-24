@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 export const User = {
     name: String,
     age: Number,
+    email: String,
     dni: String,
     password: String,
     state: Boolean,

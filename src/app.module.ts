@@ -13,6 +13,10 @@ import { RoomsModule } from './modules/room/room.module';
 import { ChairsModule } from './modules/chair/chair.module';
 import { TicketsModule } from './modules/ticket/ticket.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { MailModule } from './modules/mail/mail.module';
+import { join } from 'path';
 
 @Module({
     imports: [
@@ -31,7 +35,21 @@ import { AuthModule } from './modules/auth/auth.module';
         ChairStatusModule,
         RoomsModule,
         ChairsModule,
-        TicketsModule
+        TicketsModule,
+        MailerModule.forRoot({
+            transport: `smtps://${process.env.EMAIL}:${process.env.PASSWORD_EMAIL}@smtp.${process.env.DOMAIN}.com`,
+            defaults: {
+                from: `"No Reply" <${process.env.EMAIL}>`,
+            },
+            template: {
+                dir: join(__dirname, 'templates'),
+                adapter: new HandlebarsAdapter(),
+                options: {
+                    strict: true,
+                },
+            },
+        }),
+        MailModule,
     ],
 })
 export class AppModule { }
