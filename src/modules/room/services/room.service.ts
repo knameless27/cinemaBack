@@ -4,8 +4,8 @@ import { UpdateRoomDto } from '../dto/update-room.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { standardResponse } from "../../utils/response";
-import { RoomModelName } from 'src/models/Room.model';
-import { IRoom } from 'src/interfaces/Room/Room.interface';
+import { RoomModelName } from 'src/models/room.model';
+import { IRoom } from 'src/interfaces/room/room.interface';
 
 @Injectable()
 export class RoomService {

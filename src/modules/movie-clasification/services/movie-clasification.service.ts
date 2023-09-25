@@ -5,7 +5,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { standardResponse } from "../../utils/response";
 import { MovieClasificationModelName } from 'src/models/movie-clasification.model';
-import { IMovieClasification } from 'src/interfaces/Movie_Clasification/movie_clasification.interface';
+import { IMovieClasification } from 'src/interfaces/movie_clasification/movie_clasification.interface';
 
 @Injectable()
 export class MovieClasificationService {

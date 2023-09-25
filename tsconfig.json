@@ -17,9 +17,5 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
-  },
-  "include": [
-    "src/**/*.ts", // Patrón para incluir archivos TypeScript en src
-    "src/**/*.js" // Patrón para incluir archivos JavaScript en src
-  ]
+  }
 }

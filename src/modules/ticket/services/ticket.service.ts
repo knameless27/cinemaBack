@@ -5,7 +5,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { standardResponse } from "../../utils/response";
 import { TicketModelName } from 'src/models/ticket.model';
-import { ITicket } from 'src/interfaces/Ticket/ticket.interface';
+import { ITicket } from 'src/interfaces/ticket/ticket.interface';
 import { FunctionService } from 'src/modules/function/services/function.service';
 import { UsersService } from 'src/modules/users/services/users.service';
 import { ChairService } from 'src/modules/chair/services/chair.service';
